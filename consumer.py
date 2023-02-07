@@ -24,6 +24,9 @@ class RabbitmqConsumer:
         channel.queue_declare(
             queue=self.__queue,
             durable=True
+            # arguments={
+            #     "x-overflow":'reject-publish'
+            # }
         )
 
         channel.basic_consume(
